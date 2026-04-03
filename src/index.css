@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@700;900&display=swap');
+
+@theme {
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Anton", sans-serif;
+  --font-accent: "Bebas Neue", sans-serif;
+  --font-condensed: "Barlow Condensed", sans-serif;
+
+  --color-bk-flame: #D62300;
+  --color-bk-gold: #F5A623;
+  --color-bk-brown: #502314;
+  --color-bk-cream: #FFF8EF;
+  --color-bk-dark: #1A0A00;
+  --color-bk-ember: #FF6B00;
+  --color-bk-smoke: #2C1A0E;
+}
+
+@layer base {
+  body {
+    @apply bg-bk-dark text-bk-cream font-sans antialiased selection:bg-bk-flame selection:text-white;
+  }
+}
+
+@keyframes flicker {
+  0%, 90% { text-shadow: 4px 4px 0px theme('colors.bk-flame'), 8px 8px 30px rgba(214,35,0,0.4); }
+  95% { text-shadow: 4px 4px 0px theme('colors.bk-ember'), 8px 8px 50px rgba(255,107,0,0.7); }
+  100% { text-shadow: 4px 4px 0px theme('colors.bk-flame'), 8px 8px 30px rgba(214,35,0,0.4); }
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite alternate;
+}
+
+.flame-gradient {
+  background: radial-gradient(ellipse at 50% 100%, rgba(214,35,0,0.35) 0%, rgba(255,107,0,0.15) 40%, transparent 70%);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #1A0A00 0%, #3D1200 40%, #1A0A00 100%);
+}
